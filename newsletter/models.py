@@ -1,17 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from authentication.models import BaseModel,User
 
-class BaseModel(models.Model):
-    
-    #New subscriber date subscription made
-    created_at = models.DateTimeField(auto_now_add=True)
-    
-    #When the infor was updated
-    updated_at = models.DateTimeField(auto_now=True)
 
-class User(BaseModel,AbstractUser):
-    pass
 
+# Create your models here.
 class NewsletterPost(BaseModel):
     #Newsletter post name
     title = models.CharField(max_length=255)
@@ -38,4 +30,3 @@ class NewsletterEmail(BaseModel):
 
     # The description of the newsletter
     description = models.TextField()
-
