@@ -81,8 +81,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'project_x', 
         'USER': 'postgres',
-        'PASSWORD': 'Maolor915!',
-        'HOST': '127.0.0.1', 
+        'PASSWORD': 'docker_pw',
+        'HOST': 'db', 
         'PORT': '5432', 
     }
 }

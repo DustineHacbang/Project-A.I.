@@ -1,0 +1,6 @@
+- Docker
+- - Run container
+- - - `docker-compose -f docker-compose.yml up`
+- - Django shell
+- - - `docker exec -it project_x_web /bin/bash`
+- - - Now you can run normal django commands like `python manage.py shell`
