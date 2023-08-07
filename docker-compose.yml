@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   db:
+    env_file:
+      - project_AI/.env 
     image: postgres:15
     volumes:
       - project_x:/var/lib/postgresql/data
@@ -11,7 +13,7 @@ services:
     environment:
       POSTGRES_DB: project_x
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: docker_p
+      POSTGRES_PASSWORD: ${PASSWORD}
     healthcheck:
       test: ["CMD", "/usr/local/bin/pg_isready -U postgres"]
 
