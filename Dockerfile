@@ -7,20 +7,26 @@ FROM python:3.11
 # set environment variables  
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1  
-USER postgres
+RUN apt update -y
+RUN apt-get install -y postgresql-client-common postgresql-client libpq-dev python3 python3-pip git
+
+
 # create root directory for our project in the container
-RUN mkdir /project_x
+
 
 # Set the working directory to /project_x
-WORKDIR /project_x
+
 
 # Copy the current directory contents into the container at /project_x
-COPY . /project_x/
+RUN mkdir /project_x 
 
+COPY . /project_x/
+WORKDIR /project_x
 # install dependencies  
-RUN pip install --upgrade pip  
-# Install any needed packages specified in requirements.txt
+RUN pip install setuptools
 RUN pip install -r requirements.txt
+RUN pip install --upgrade pip --user
+# Install any needed packages specified in requirements.txt
 
 # port where the Django app runs  
 EXPOSE 8000  
